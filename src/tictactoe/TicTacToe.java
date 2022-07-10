@@ -34,14 +34,22 @@ public class TicTacToe {
 	}
 	
 	public static char[][] move(char[][] board, int row, int column, char symbol) {
-		board[row][column] = symbol;
-		return board;
+		try { 
+			board[row][column] = symbol;
+			return board;
+		}
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("out of bounds");	
+			return null;
+		}
+		
+		
 	}
 	
 	
 	public static void main(String[] args) {
 		char[][] theBoard = board(3, 3);
-		move(theBoard, 0, 0, 'a');
+		move(theBoard, 2, 2, 'a');
 		printBoard(theBoard);
 	}
 }
